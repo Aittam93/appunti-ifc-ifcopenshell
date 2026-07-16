@@ -1,0 +1,14 @@
+# Virtual environment
+venv-ifc/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
