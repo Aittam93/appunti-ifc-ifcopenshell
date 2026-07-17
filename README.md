@@ -106,8 +106,8 @@ a loro volta classificata in surface_type (esempio: GroundSurface, WallSurface).
 Notare anche che ogni feature è renderizzata come triangolo.
 
 <img width="678" height="328" alt="image" src="https://github.com/user-attachments/assets/b6bf79a5-498b-43a8-9bf3-d7216720c586" />
+<img width="777" height="507" alt="image" src="https://github.com/user-attachments/assets/d4d68063-73b5-477d-9d98-bac99f5c2187" />
 
-<img width="678" height="328" alt="image" src="https://github.com/user-attachments/assets/77c89917-118b-4ffb-acd1-fba9f47a8bca" />
 
 ## Riferimenti
 
