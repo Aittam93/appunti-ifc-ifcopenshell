@@ -94,6 +94,20 @@ mostra anomalie.
 pip install cjio
 python explore-cityjson.py
 ```
+### CityJSON su QGIS via CityJSON loader plugin
+
+In versioni precedenti a QGIS4 è possibile scaricare il plugin CityJSON loader (https://plugins.qgis.org/plugins/CityJSON-loader/).
+Il plugin parsa il CityJSON in formato compatibile su QGIS.
+
+<img width="1173" height="727" alt="image" src="https://github.com/user-attachments/assets/c55b6b14-56df-4d86-8548-c1e4ed0713be" />
+
+Da notare come è strutturata la tabella degli attributi. Ci sono due due UID (Building_1 e Building_2) a cui fanno riferimento molte righe. Le righe sono
+a loro volta classificata in surface_type (esempio: GroundSurface, WallSurface). Le colonne parents e children mantengono eventuali relazioni tra gli oggetti.
+Notare anche che ogni feature è renderizzata come triangolo.
+
+<img width="678" height="328" alt="image" src="https://github.com/user-attachments/assets/b6bf79a5-498b-43a8-9bf3-d7216720c586" />
+
+<img width="678" height="328" alt="image" src="https://github.com/user-attachments/assets/77c89917-118b-4ffb-acd1-fba9f47a8bca" />
 
 ## Riferimenti
 
