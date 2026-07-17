@@ -17,6 +17,7 @@ settings.set(settings.USE_WORLD_COORDS, True)
 #
 meshes = []
 for element in model.by_type("IfcProduct"): # Taking "IfcProduct" you take a class that is general and contains walls, roof ecc. No need to list each one of them
+# If you want to see the difference play with "IfcWall"
 # exclude elements with no geometry
     if not element.Representation:
         continue
