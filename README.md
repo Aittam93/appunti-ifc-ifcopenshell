@@ -13,6 +13,9 @@ L'obiettivo del repo è studiare la pipeline che porta da un file IFC a una web 
 | `explore-ifc.py` | Script commentato passo passo: apertura del modello, lettura entità, attributi, property set, relazioni inverse, traverse, e (commentate) le operazioni di scrittura. |
 | `visualize-ifc.py` | Converte la geometria parametrica degli `IfcProduct` in mesh triangolari con `ifcopenshell.geom` e le mostra in una finestra interattiva con trimesh. |
 | `Building-Architecture.ifc` | File IFC di esempio (schema IFC4) usato dallo script. |
+| `explore-cityjson.py` | Prima ispezione di un file CityJSON: prima con la sola libreria `json`, poi con `cjio` per assegnare un CRS al file di esempio. |
+| `twobuildings.city.json` | File CityJSON di esempio (versione 2.0), senza CRS dichiarato. |
+| `twobuildings_georef.city.json` | Stesso file dopo l'assegnazione dell'EPSG con `cjio`. |
 
 ## Come partire
 
@@ -67,6 +70,27 @@ L'installazione di Bonsai aggiunge funzioni specifiche a Blender come "New IFC P
 Per testare, fai l'installazione e carica il sample file di questo repo.
 
 <img width="1903" height="968" alt="image" src="https://github.com/user-attachments/assets/56f58ba5-dd30-46b6-87bf-41a620955abb" />
+
+## CityJSON — il secondo formato della pipeline
+
+CityJSON è il secondo formato che ci interessa nella pipeline verso la web map 3D.
+A differenza di IFC è JSON puro e auto-descrittivo: si apre con la sola libreria
+`json` e la struttura di primo livello è già leggibile (`type`, `version`,
+`metadata`, `CityObjects`, `vertices`, `transform`).
+
+Oltre a `json` esiste `cjio`, che però **non è una libreria** ma uno strumento a riga
+di comando per operare sul modello, più vicino a `ogr2ogr` che a IfcOpenShell.
+
+Il file di esempio non dichiarava alcun CRS (`get_epsg()` restituisce `None`). Le
+coordinate sembrano UTM, quindi abbiamo assegnato con `cjio` l'EPSG 32632 e salvato
+una seconda versione del file — **è un'assunzione, non un dato di partenza**. Il file
+esportato è stato verificato su [ninja.cityjson.org](https://ninja.cityjson.org/) e non
+mostra anomalie.
+
+```bash
+pip install cjio
+python explore-cityjson.py
+```
 
 ## Riferimenti
 
