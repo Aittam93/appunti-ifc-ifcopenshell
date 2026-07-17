@@ -60,6 +60,7 @@ Puoi installare Blender e andare su Modifica > Preferenze > Get Extension per ce
 L'installazione di Bonsai aggiunge funzioni specifiche a Blender come "New IFC Project" e "Load IFC Project".
 Per testare, fai l'installazione e carica il sample file di questo repo.
 
+<img width="1903" height="968" alt="image" src="https://github.com/user-attachments/assets/56f58ba5-dd30-46b6-87bf-41a620955abb" />
 
 ## Riferimenti
 
