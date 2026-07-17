@@ -1,4 +1,4 @@
-# Appunti IFC + IfcOpenShell
+# Appunti IFC + IfcOpenShell + altro
 
 Primi appunti su **come accedere e usare i file IFC** da Python con la libreria
 [IfcOpenShell](https://ifcopenshell.org/). Materiale di partenza per chi non ha mai
@@ -54,8 +54,17 @@ Esempio dal file di esempio:
 `IFCSURFACESTYLERENDERING` referenzia `IFCCOLOURRGB`. In `IFCCOLOURRGB` il `$` indica
 `Name` nullo, mentre R=1, G=1, B=1 sono normalizzati: il muro è completamente bianco.
 
+## Visualizzatori Desktop per IFC : Blender + Bonsai
+
+Puoi installare Blender e andare su Modifica > Preferenze > Get Extension per cercare e installare Bonsai.
+L'installazione di Bonsai aggiunge funzioni specifiche a Blender come "New IFC Project" e "Load IFC Project".
+Per testare, fai l'installazione e carica il sample file di questo repo.
+
+
 ## Riferimenti
 
 - [Documentazione IfcOpenShell](https://docs.ifcopenshell.org/)
 - [Tutorial ufficiale](https://docs.ifcopenshell.org/ifcopenshell-python.html) — lo script segue questo percorso
 - [Specifica IFC4 (buildingSMART)](https://standards.buildingsmart.org/IFC/RELEASE/IFC4/ADD2_TC1/HTML/)
+- [Blender] (https://www.blender.org/)
+- [Bonsai] (https://bonsaibim.org/)
