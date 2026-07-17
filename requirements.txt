@@ -1,0 +1,13 @@
+# Dipendenze dirette degli script di questo repo.
+# Installazione: pip install -r requirements.txt
+
+# explore-ifc.py, visualize-ifc.py — lettura e geometria IFC
+ifcopenshell==0.8.5
+
+# explore-cityjson.py — operazioni sui modelli CityJSON (CRS, ecc.)
+cjio==0.10.1
+
+# visualize-ifc.py — mesh triangolari e finestra interattiva
+trimesh==4.12.2
+numpy==2.5.1
+pyglet==1.5.31  # backend richiesto da trimesh per scene.show()
