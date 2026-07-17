@@ -4,11 +4,14 @@ Primi appunti su **come accedere e usare i file IFC** da Python con la libreria
 [IfcOpenShell](https://ifcopenshell.org/). Materiale di partenza per chi non ha mai
 aperto un `.ifc` a livello di dati.
 
+L'obiettivo del repo è studiare la pipeline che porta da un file IFC a una web map 3D.
+
 ## Cosa c'è qui
 
 | File | Contenuto |
 |---|---|
 | `explore-ifc.py` | Script commentato passo passo: apertura del modello, lettura entità, attributi, property set, relazioni inverse, traverse, e (commentate) le operazioni di scrittura. |
+| `visualize-ifc.py` | Converte la geometria parametrica degli `IfcProduct` in mesh triangolari con `ifcopenshell.geom` e le mostra in una finestra interattiva con trimesh. |
 | `Building-Architecture.ifc` | File IFC di esempio (schema IFC4) usato dallo script. |
 
 ## Come partire
@@ -25,9 +28,10 @@ venv-ifc\Scripts\activate
 # macOS / Linux
 source venv-ifc/bin/activate
 
-pip install ifcopenshell
+pip install ifcopenshell trimesh numpy
 
 python explore-ifc.py
+python visualize-ifc.py
 ```
 
 Lo script legge il file IFC dalla stessa cartella, quindi non serve toccare i path.
