@@ -87,6 +87,9 @@ una seconda versione del file — **è un'assunzione, non un dato di partenza**.
 esportato è stato verificato su [ninja.cityjson.org](https://ninja.cityjson.org/) e non
 mostra anomalie.
 
+<img width="1918" height="910" alt="image" src="https://github.com/user-attachments/assets/3faadc7c-7cf7-4dcf-b703-0b99ea1e54a2" />
+
+
 ```bash
 pip install cjio
 python explore-cityjson.py
