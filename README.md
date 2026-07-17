@@ -17,27 +17,39 @@ L'obiettivo del repo è studiare la pipeline che porta da un file IFC a una web 
 | `twobuildings.city.json` | File CityJSON di esempio (versione 2.0), senza CRS dichiarato. |
 | `twobuildings_georef.city.json` | Stesso file dopo l'assegnazione dell'EPSG con `cjio`. |
 
+
 ## Come partire
 
-Serve Python 3.9+.
+Serve Python 3.9+ (testato su 3.13).
 
 ```bash
 git clone https://github.com/Aittam93/appunti-ifc-ifcopenshell.git
 cd appunti-ifc-ifcopenshell
 
 python -m venv venv-ifc
-# Windows
-venv-ifc\Scripts\activate
+
+# Windows (PowerShell)
+venv-ifc\Scripts\Activate.ps1
 # macOS / Linux
 source venv-ifc/bin/activate
 
-pip install ifcopenshell trimesh numpy
+pip install -r requirements.txt
 
 python explore-ifc.py
 python visualize-ifc.py
+python explore-cityjson.py
 ```
 
-Lo script legge il file IFC dalla stessa cartella, quindi non serve toccare i path.
+Gli script leggono i file dalla stessa cartella, quindi non serve toccare i path.
+
+> **Windows**: il comando è `python`, non `python3`. Se l'attivazione del venv dà
+> *"l'esecuzione di script è disabilitata"*, lanciare prima
+> `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`.
+
+> **VS Code**: dopo aver creato il venv, selezionare l'interprete con
+> `Ctrl+Shift+P` → *Python: Select Interpreter* → quello dentro `venv-ifc`.
+> L'estensione Code Runner **ignora** questa impostazione e usa il Python di
+> sistema: usare il Run nativo dell'estensione Python (`Ctrl+F5`).
 
 ## L'idea chiave da portarsi a casa
 
