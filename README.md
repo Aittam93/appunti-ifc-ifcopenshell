@@ -57,9 +57,10 @@ Esempio dal file di esempio:
 `IFCSURFACESTYLERENDERING` referenzia `IFCCOLOURRGB`. In `IFCCOLOURRGB` il `$` indica
 `Name` nullo, mentre R=1, G=1, B=1 sono normalizzati: il muro è completamente bianco.
 
-## Visualizzare in Python con trimesh
+## Visualizzare in Python
 
-La libreria trimesh si occupa di generare le mesh triangolari necessarie a renderizzare l'oggetto ifc (vedi visualize-ifc.py)
+La tassellazione — da geometria parametrica a mesh triangolare — è fatta da `ifcopenshell.geom.create_shape()`, che risolve anche la catena di placement
+annidati (`USE_WORLD_COORDS=True`). Trimesh riceve vertici e facce già calcolati e serve solo come contenitore e viewer interattivo (vedi visualize-ifc.py).
 
 <img width="1271" height="792" alt="image" src="https://github.com/user-attachments/assets/dce8ad74-f40d-4d03-bc4f-3f996a48ae1f" />
 
