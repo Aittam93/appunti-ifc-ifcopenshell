@@ -54,6 +54,12 @@ Esempio dal file di esempio:
 `IFCSURFACESTYLERENDERING` referenzia `IFCCOLOURRGB`. In `IFCCOLOURRGB` il `$` indica
 `Name` nullo, mentre R=1, G=1, B=1 sono normalizzati: il muro è completamente bianco.
 
+## Visualizzare in Python con trimesh
+
+La libreria trimesh si occupa di generare le mesh triangolari necessarie a renderizzare l'oggetto ifc (vedi visualize-ifc.py)
+
+<img width="1271" height="792" alt="image" src="https://github.com/user-attachments/assets/dce8ad74-f40d-4d03-bc4f-3f996a48ae1f" />
+
 ## Visualizzatori Desktop per IFC : Blender + Bonsai
 
 Puoi installare Blender e andare su Modifica > Preferenze > Get Extension per cercare e installare Bonsai.
