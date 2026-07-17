@@ -104,9 +104,12 @@ Il plugin parsa il CityJSON in formato compatibile su QGIS.
 Da notare come è strutturata la tabella degli attributi. Ci sono due due UID (Building_1 e Building_2) a cui fanno riferimento molte righe. Le righe sono
 a loro volta classificata in surface_type (esempio: GroundSurface, WallSurface). Le colonne parents e children mantengono eventuali relazioni tra gli oggetti.
 Notare anche che ogni feature è renderizzata come triangolo.
+L'attributo "type" = building definisce il tipo di oggetto urbano. CityGML ne definisce anche altri (ad esempio relativi alle infrastrutture).
 
 <img width="678" height="328" alt="image" src="https://github.com/user-attachments/assets/b6bf79a5-498b-43a8-9bf3-d7216720c586" />
 <img width="777" height="507" alt="image" src="https://github.com/user-attachments/assets/d4d68063-73b5-477d-9d98-bac99f5c2187" />
+
+<img width="617" height="506" alt="image" src="https://github.com/user-attachments/assets/8e84878d-5120-4324-92cf-40e0d8feed06" />
 
 
 ## Riferimenti
