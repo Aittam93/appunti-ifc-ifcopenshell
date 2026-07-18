@@ -125,6 +125,24 @@ L'attributo "type" = building definisce il tipo di oggetto urbano. CityGML ne de
 <img width="617" height="506" alt="image" src="https://github.com/user-attachments/assets/8e84878d-5120-4324-92cf-40e0d8feed06" />
 
 
+## 🎯 Catena completa: da GIS a BIM a Web Map 3D
+
+Il traguardo del repo: la prima costruzione **end-to-end** dell'intera pipeline, da un
+footprint GIS (OpenStreetMap) fino a un edificio visibile nella posizione reale su una
+web map CesiumJS, passando per IFC georeferenziato → CityJSON → 3D Tiles.
+
+```
+OSM footprint → IFC (Bonsai) → CityJSON → 3D Tiles (glb + tileset) → CesiumJS
+```
+
+Tutto il materiale — script commentati, dati di ogni stage, tile e istruzioni passo
+passo — sta in [`cesium_learning/from_gis_to_bim_to_webmap/`](cesium_learning/from_gis_to_bim_to_webmap/),
+con un **[README dedicato](cesium_learning/from_gis_to_bim_to_webmap/README.md)** che
+documenta ogni passaggio, la validazione con strumenti ufficiali e i limiti noti.
+
+La web map è `cesium_learning/index.html` (serve un token Cesium ion gratuito e un
+server HTTP locale — vedi il README della pipeline).
+
 ## Riferimenti
 
 - [Documentazione IfcOpenShell](https://docs.ifcopenshell.org/)

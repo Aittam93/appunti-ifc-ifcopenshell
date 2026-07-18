@@ -7,10 +7,17 @@ venv/
 __pycache__/
 *.py[cod]
 
-# Progetti QGIS (locali, non versionati)
+# Progetti QGIS + sidecar di metadati layer (locali, non versionati)
 *.qgz
 *.qgs
 *.qgz~
+*.qmd
+
+# Immagini / screenshot (non versionati: vedi i link nel README)
+*.jpg
+*.jpeg
+*.png
+*.gif
 
 # Editor / OS
 .vscode/

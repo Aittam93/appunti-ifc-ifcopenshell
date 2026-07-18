@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "cmcc_caserta_polygon",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "w877880557", "osm_id": "877880557", "osm_type": "way", "building": "yes", "office": "research", "name": "NEUROTECH", "description": "Istituto di Ricerca", "addr:street": "Viale Edison", "addr:city": "Caserta" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 14.3579021, 41.0499144 ], [ 14.3579042, 41.0500218 ], [ 14.3580834, 41.0500198 ], [ 14.35807, 41.0493181 ], [ 14.3579299, 41.0493196 ], [ 14.3579327, 41.0494633 ], [ 14.3575017, 41.049468 ], [ 14.3575039, 41.0495789 ], [ 14.3579283, 41.0495741 ], [ 14.3579328, 41.0497982 ], [ 14.3575401, 41.0498026 ], [ 14.3575424, 41.0499184 ], [ 14.3579021, 41.0499144 ] ] ] ] } }
+]
+}
