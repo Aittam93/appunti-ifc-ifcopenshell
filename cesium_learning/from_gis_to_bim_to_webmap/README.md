@@ -1,9 +1,10 @@
 # Da GIS a BIM a Web Map — la catena completa IFC → CityJSON → 3D Tiles → CesiumJS
 
 Prima costruzione **end-to-end** dell'intera pipeline: si parte dal footprint di un
-edificio preso dal GIS (OpenStreetMap via QGIS), lo si porta a modello BIM (IFC
-georeferenziato in Bonsai/Blender), e lo si trasforma passo per passo fino a
-vederlo nella posizione reale su una web map 3D (CesiumJS).
+edificio preso dal GIS (OpenStreetMap via QGIS), usato **solo come base**, sopra al
+quale il modello BIM è stato disegnato **ex novo** in Bonsai/Blender (nessuna
+estrusione automatica). Da lì lo si trasforma passo per passo fino a vederlo nella
+posizione reale su una web map 3D (CesiumJS).
 
 Edificio di prova: sede **CMCC di Caserta** (~14.358° E, ~41.049° N, UTM 33N / EPSG:32633).
 
@@ -19,8 +20,8 @@ Edificio di prova: sede **CMCC di Caserta** (~14.358° E, ~41.049° N, UTM 33N /
 
 ```mermaid
 flowchart TD
-    A["OSM footprint<br/>(QGIS / QuickOSM)"] -->|footprint_to_local_coords.py| B["footprint_cmcc.json<br/>vertici locali + origine UTM"]
-    B -->|"Bonsai / Blender<br/>(estrusione + georef manuale)"| C["cmcc_footprint_v1.ifc<br/>IFC4 georeferenziato"]
+    A["OSM footprint<br/>(QGIS / QuickOSM)<br/>GeoJSON gia in EPSG:32633"] -->|footprint_to_local_coords.py| B["footprint_cmcc.json<br/>traccia locale (base)"]
+    B -->|"Bonsai / Blender<br/>(modellazione ex novo,<br/>footprint solo come base)"| C["cmcc_footprint_v1.ifc<br/>IFC4 georeferenziato"]
     C -->|verify_ifc.py| C
     C -->|converter_ifc_to_cityjson.py| D["cmcc.city.json<br/>CityJSON 2.0"]
     D -->|converter_cityjson_to_3dtiles.py| E["tiles/building.glb<br/>tiles/tileset.json<br/>(3D Tiles 1.1)"]
@@ -70,11 +71,18 @@ origine e produce vertici locali in metri. Output: `data/footprint_cmcc.json`
 Il footprint è stato preso da OSM con QuickOSM (`elementId 877880557`) ed esportato
 anche come `data/footprint_cmcc.geojson`.
 
-### Stage 2 — coordinate locali → IFC (Bonsai / Blender, **manuale**)
+> ✅ **Coordinate già esatte alla fonte.** Il GeoJSON esportato da QGIS dichiarava già
+> il CRS corretto (`urn:ogc:def:crs:EPSG::32633`, cioè UTM 33N): le coordinate erano
+> quindi già giuste, senza alcuna assunzione o riproiezione. È il caso opposto
+> dell'esempio `twobuildings` nel README principale, che non dichiarava alcun CRS e ha
+> richiesto un EPSG *assunto*.
 
-Passaggio non scriptato: in Blender con l'estensione **Bonsai** si estrude il footprint
-in un volume e si imposta la georeferenziazione (`IfcProjectedCRS` + `IfcMapConversion`).
-Risultato: `data/cmcc_footprint_v1.ifc` (schema IFC4, unità in metri).
+### Stage 2 — footprint come base → IFC disegnato ex novo (Bonsai / Blender, **manuale**)
+
+Passaggio non scriptato e **senza estrusione automatica**: in Blender con l'estensione
+**Bonsai** il modello BIM è stato disegnato **ex novo**, usando il footprint solo come
+**base/traccia** a terra. Si imposta poi la georeferenziazione (`IfcProjectedCRS` +
+`IfcMapConversion`). Risultato: `data/cmcc_footprint_v1.ifc` (schema IFC4, unità in metri).
 
 `scripts/verify_ifc.py` è il controllo di sanità: rilegge dall'IFC il `IfcProjectedCRS`
 e il `IfcMapConversion` (Eastings/Northings/Height) per confermare che la
